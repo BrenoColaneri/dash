@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CTI Global | Painel Financeiro Operacional</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ==================================================================== -->
+    <!-- SIDEBAR FIXA EXECUTIVA (TODAS AS 6 VISÕES VISÍVEIS SEM SCROLL)       -->
+    <!-- ==================================================================== -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand-card">
+          <div class="brand-logo">CTI</div>
+          <div class="brand-info">
+            <h1>CTI Global</h1>
+            <span>Planejamento Financeiro • FP&amp;A</span>
+          </div>
+        </div>
+
+        <div class="nav-section-label">Módulos Analíticos</div>
+
+        <nav class="sidebar-nav" aria-label="Navegação Principal">
+          <button class="nav-tab active" data-tab="tab-visao" data-title="Visão Financeira &amp; Evolução">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <div class="nav-text">
+              <span class="nav-title">Visão Financeira</span>
+              <span class="nav-subtitle">KPIs, Margens e Evolução</span>
+            </div>
+          </button>
+
+          <button class="nav-tab" data-tab="tab-metas" data-title="Painel de Metas &amp; OKRs Financeiros">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+            <div class="nav-text">
+              <span class="nav-title">Painel de Metas</span>
+              <span class="nav-subtitle">OKRs, Gaps e Atingimento</span>
+            </div>
+          </button>
+
+          <button class="nav-tab" data-tab="tab-ticket" data-title="Ticket Médio, CAC &amp; LTV (Unit Economics)">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <line x1="19" y1="8" x2="19" y2="14"></line>
+              <line x1="22" y1="11" x2="16" y2="11"></line>
+            </svg>
+            <div class="nav-text">
+              <span class="nav-title">Ticket, CAC &amp; LTV</span>
+              <span class="nav-subtitle">Unit Economics Comercial</span>
+            </div>
+          </button>
+
+          <button class="nav-tab" data-tab="tab-sensib" data-title="Análise de Sensibilidade (What-If)">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
+            <div class="nav-text">
+              <span class="nav-title">Sensibilidade</span>
+              <span class="nav-subtitle">Desconto, Custos e WACC</span>
+            </div>
+          </button>
+
+          <button class="nav-tab" data-tab="tab-rankings" data-title="Rankings Estratégicos &amp; 1.200 Cenários">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <div class="nav-text">
+              <span class="nav-title">Rankings &amp; Cenários</span>
+              <span class="nav-subtitle">Top 10 e Base 1.200</span>
+            </div>
+          </button>
+
+          <button class="nav-tab" data-tab="tab-dic" data-title="Governança de Indicadores &amp; Auditoria Contábil">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <div class="nav-text">
+              <span class="nav-title">Governança &amp; KPIs</span>
+              <span class="nav-subtitle">Catálogo e Auditoria</span>
+            </div>
+          </button>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="validation-box">
+          <div class="validation-dot"></div>
+          <div class="validation-text">
+            <strong>Base Auditada: 100%</strong>
+            1.200 cenários × 12 anos sincronizados
+          </div>
+        </div>
+
+        <div class="sidebar-actions">
+          <button class="btn btn-primary" onclick="window.exportarResumoCSV()" title="Exportar resumo validado dos 1.200 cenários em CSV">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            CSV
+          </button>
+          <button class="btn" onclick="window.print()" title="Imprimir ou exportar visão atual em PDF">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            PDF
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================================================================== -->
+    <!-- ÁREA DE TRABALHO PRINCIPAL (TOPBAR COMPACTA + CONTEÚDO)              -->
+    <!-- ==================================================================== -->
+    <div class="workspace">
+
+      <!-- BARRA SUPERIOR EXECUTIVA COM FILTROS GLOBAIS -->
+      <header class="topbar">
+        <div class="topbar-context">
+          <div class="topbar-title-row">
+            <span class="topbar-module-name" id="topbar-module-title">Visão Financeira &amp; Evolução</span>
+            <span class="scope-pill" id="header-active-scope">Média Geral (1.200 Cenários) • Anos 1 a 11</span>
+          </div>
+          <span class="topbar-sub">Diretoria Financeira &amp; Controladoria CTI Global • Demonstrações Consolidadas (DRE, Balanço e DFC)</span>
+        </div>
+
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label for="sel-escopo-modo">Visão / Escopo Analítico</label>
+            <select id="sel-escopo-modo">
+              <option value="media_1200">Média Geral (1.200 Cenários)</option>
+              <option value="mediana_1200">Mediana P50 (1.200 Cenários)</option>
+              <option value="top10">Destaques Estratégicos (Top 10)</option>
+              <option value="cenario">Cenário Individual (1 a 1.200)</option>
+            </select>
+          </div>
+
+          <div class="filter-group" id="grp-top10-cat" style="display:none;">
+            <label for="sel-top10-cat">Perfil Top 10</label>
+            <select id="sel-top10-cat">
+              <option value="ALTA RENTABILIDADE">Alta Rentabilidade</option>
+              <option value="ALTA LIQUIDEZ">Alta Liquidez</option>
+              <option value="BAIXA LIQUIDEZ">Baixa Liquidez</option>
+              <option value="RETORNO MODERADO">Retorno Moderado</option>
+              <option value="BAIXO RISCO">Baixo Risco</option>
+            </select>
+          </div>
+
+          <div class="filter-group" id="grp-cenario-esp" style="display:none;">
+            <label for="sel-cenario-especifico">Cenário Ativo</label>
+            <select id="sel-cenario-especifico"></select>
+          </div>
+
+          <div class="filter-group">
+            <label for="sel-horizonte-anos">Horizonte Temporal</label>
+            <select id="sel-horizonte-anos">
+              <option value="1_11">Anos 1 a 11 (Balanço Consolidado)</option>
+              <option value="1_12">Anos 1 a 12 (Série Completa DRE/DFC)</option>
+              <option value="1_5">Curto/Médio Prazo (Anos 1 a 5)</option>
+              <option value="6_11">Longo Prazo (Anos 6 a 11)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="sel-escala-moeda">Unidade (R$)</label>
+            <select id="sel-escala-moeda">
+              <option value="bi">R$ Bilhões (bi)</option>
+              <option value="mi">R$ Milhões (mi)</option>
+              <option value="mil">R$ Mil (mil)</option>
+              <option value="exato">R$ Exato</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="main-container">
+
+        <!-- ================================================================ -->
+        <!-- ABA 1: VISÃO FINANCEIRA & EVOLUÇÃO                               -->
+        <!-- ================================================================ -->
+        <section id="tab-visao" class="tab-pane active">
+          <div id="banner-ano12" class="notice-banner" style="display:none;">
+            <strong>Nota de Governança Contábil (Ano 12):</strong> Conforme política de consolidação corporativa da CTI Global, o Balanço Patrimonial projetado no <strong>Ano 12</strong> possui fechamento parcial. Assim, os indicadores patrimoniais (LC, LS, LI, LG, PCT, CE, IPL, Endividamento Geral, NOPAT, Capital Investido, EVA e ROIC) são reportados como <code>n/d</code> no Ano 12, enquanto Receita, Custos Variáveis, EBITDA e Margens seguem a série integral da DRE (Anos 1 a 12).
+          </div>
+
+          <!-- Matriz 4x2 de KPIs -->
+          <div id="visao-kpi-grid" class="kpi-grid"></div>
+
+          <!-- Gráficos de Evolução -->
+          <div class="charts-grid-2">
+            <div class="chart-box">
+              <h3>Evolução Anual: Receita, Custos Variáveis Proxy, EBITDA e EVA</h3>
+              <div class="chart-sub">Comparativo entre EBITDA do Modelo CTI, EBITDA Calculado (EBIT + |D&amp;A|) e Criação de Valor (EVA)</div>
+              <div id="chart-evolucao-dre" class="svg-chart-container"></div>
+            </div>
+
+            <div class="chart-box">
+              <h3>Evolução das Margens Operacionais, ROIC e WACC (12,0%)</h3>
+              <div class="chart-sub">Trajetória da Margem de Contribuição, Margem EBITDA (Modelo vs Calculada) e ROIC frente ao WACC</div>
+              <div id="chart-evolucao-margens" class="svg-chart-container"></div>
+            </div>
+          </div>
+
+          <div class="charts-grid-2">
+            <div class="chart-box">
+              <h3>Evolução de Liquidez (LC, LI, LG) e Endividamento Geral (Anos 1 a 11)</h3>
+              <div class="chart-sub">Capacidade de pagamento de curto e longo prazo vs comprometimento do Ativo Total</div>
+              <div id="chart-evolucao-liquidez" class="svg-chart-container"></div>
+            </div>
+
+            <div class="chart-box">
+              <h3>Evolução do Fluxo de Caixa (DFC): Geração de Caixa, Dividendos e Saldo Final</h3>
+              <div class="chart-sub">Acompanhamento operacional de geração livre de caixa, investimentos e distribuição a acionistas</div>
+              <div id="chart-evolucao-dfc" class="svg-chart-container"></div>
+            </div>
+          </div>
+
+          <!-- Tabela Anual Consolidada (100% visível na tela sem scroll lateral) -->
+          <div class="section-header">
+            <div>
+              <h2>Demonstrativo Anual de Indicadores (Evolução Ano a Ano)</h2>
+              <p id="sub-evolucao-unidade">Visão integral de resultados, margens, criação de valor, liquidez e estrutura de capital</p>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table table-fit">
+              <thead>
+                <tr>
+                  <th>Período</th>
+                  <th class="num-col">Receita<br />(DRE)</th>
+                  <th class="num-col">Custos<br />Var.</th>
+                  <th class="num-col">Margem<br />Contrib.</th>
+                  <th class="num-col">EBITDA<br />Calc.</th>
+                  <th class="num-col">Margem<br />EBITDA C.</th>
+                  <th class="num-col">EBITDA<br />Modelo</th>
+                  <th class="num-col">Margem<br />EBITDA M.</th>
+                  <th class="num-col">NOPAT<br />(Pós-IR)</th>
+                  <th class="num-col">EVA<br />(12%)</th>
+                  <th class="num-col">ROIC<br />Anual</th>
+                  <th class="num-col">Liquidez<br />(LC)</th>
+                  <th class="num-col">Endiv.<br />Geral</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-evolucao-anual"></tbody>
+            </table>
+            <div id="footnote-evolucao-anual" class="table-footnote" style="display:none;">
+              <strong style="color:#fbbf24;">* Nota (Ano 12):</strong> Indicadores patrimoniais dependentes do Balanço Patrimonial (NOPAT, EVA, ROIC, LC e Endividamento Geral) são reportados como <code>n/d</code> no Ano 12 devido ao fechamento parcial do balanço projetado.
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- ABA 2: PAINEL DE METAS (OKRs FINANCEIROS)                        -->
+        <!-- ================================================================ -->
+        <section id="tab-metas" class="tab-pane">
+          <div class="section-header">
+            <div>
+              <h2>Painel de Metas Financeiras e Operacionais (Acompanhamento de OKRs)</h2>
+              <p>Ajuste os parâmetros de meta abaixo para avaliar o desempenho do cenário ativo e verificar quantos dos 1.200 cenários da base CTI atingem cada objetivo.</p>
+            </div>
+          </div>
+
+          <div id="metas-summary-cards" class="kpi-grid cols-3"></div>
+
+          <!-- Controles de Metas -->
+          <div class="controls-panel">
+            <div class="filter-group">
+              <label for="meta-m-ebitda-mod">Meta Margem EBITDA Modelo (%)</label>
+              <input type="number" id="meta-m-ebitda-mod" value="80.0" step="0.2" min="50" max="95" />
+            </div>
+            <div class="filter-group">
+              <label for="meta-m-ebitda-calc">Meta Margem EBITDA Calculada (%)</label>
+              <input type="number" id="meta-m-ebitda-calc" value="75.0" step="0.2" min="50" max="95" />
+            </div>
+            <div class="filter-group">
+              <label for="meta-m-contrib">Meta Margem de Contribuição (%)</label>
+              <input type="number" id="meta-m-contrib" value="81.9" step="0.2" min="50" max="95" />
+            </div>
+            <div class="filter-group">
+              <label for="meta-roic">Meta ROIC Anual (%)</label>
+              <input type="number" id="meta-roic" value="26.1" step="0.2" min="10" max="50" />
+            </div>
+            <div class="filter-group">
+              <label for="meta-eva">Meta EVA Médio Anual (R$ bi)</label>
+              <input type="number" id="meta-eva" value="1.72" step="0.05" min="0" max="5" />
+            </div>
+            <div class="filter-group">
+              <label for="meta-receita">Meta Receita Bruta Anual (R$ bi)</label>
+              <input type="number" id="meta-receita" value="7.55" step="0.05" min="1" max="15" />
+            </div>
+            <div class="filter-group">
+              <label for="meta-lc">Meta Liquidez Corrente Mín. (x)</label>
+              <input type="number" id="meta-lc" value="1.05" step="0.05" min="0.4" max="3.0" />
+            </div>
+            <div class="filter-group">
+              <label for="meta-endiv">Teto Endividamento Geral Máx. (%)</label>
+              <input type="number" id="meta-endiv" value="123.0" step="1.0" min="60" max="200" />
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table table-fit">
+              <thead>
+                <tr>
+                  <th>Indicador / Meta Operacional</th>
+                  <th class="num-col">Realizado<br />(Escopo)</th>
+                  <th class="num-col">Meta<br />Definida</th>
+                  <th class="num-col">Gap vs<br />Meta</th>
+                  <th class="num-col">% Ating.</th>
+                  <th>Progresso Visual</th>
+                  <th>Status Farol</th>
+                  <th class="num-col">Atingimento na<br />Carteira (1.200)</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-metas"></tbody>
+            </table>
+          </div>
+
+          <div class="chart-box">
+            <h3>Probabilidade de Atingimento na Simulação CTI (% dos 1.200 Cenários) vs % Atingimento no Recorte Ativo</h3>
+            <div class="chart-sub">Comparação entre a aderência da carteira de 1.200 cenários e o desempenho do recorte selecionado</div>
+            <div id="chart-metas-probabilidade" class="svg-chart-container"></div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- ABA 3: TICKET MÉDIO, CAC & LTV (UNIT ECONOMICS)                  -->
+        <!-- ================================================================ -->
+        <section id="tab-ticket" class="tab-pane">
+          <div class="section-header">
+            <div>
+              <h2>Visão de Ticket Médio, CAC, LTV e Simulador de Unit Economics</h2>
+              <p>Parâmetros comerciais de referência da CTI Global: <code>LTV = Ticket médio × Compras/ano × Vida média × Margem = R$ 2.100,00</code> e <code>CAC = Investimento / Novos clientes = R$ 200,00</code> (<code>LTV/CAC = 10,50x</code>).</p>
+            </div>
+          </div>
+
+          <div id="ticket-kpi-grid" class="kpi-grid"></div>
+
+          <div class="controls-panel">
+            <div class="filter-group">
+              <label for="tk-bruto">Ticket Médio Bruto por Compra (R$)</label>
+              <input type="number" id="tk-bruto" value="1000" step="50" min="50" max="50000" />
+            </div>
+
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>Desconto / Cupom sobre o Ticket</span>
+                <span class="val-highlight" id="lbl-tk-desconto">0%</span>
+              </div>
+              <input type="range" id="tk-desconto" min="0" max="35" step="0.5" value="0" />
+              <span class="slider-hint">Reduz o preço efetivo pago pelo cliente</span>
+            </div>
+
+            <div class="filter-group">
+              <label for="tk-compras">Compras por Ano (Frequência)</label>
+              <input type="number" id="tk-compras" value="1.0" step="0.5" min="0.5" max="24" />
+            </div>
+
+            <div class="filter-group">
+              <label for="tk-vida">Vida Média do Cliente (Anos)</label>
+              <input type="number" id="tk-vida" value="3.0" step="0.5" min="0.5" max="15" />
+            </div>
+
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>Margem Operacional Base no Ticket</span>
+                <span class="val-highlight" id="lbl-tk-margem">70%</span>
+              </div>
+              <input type="range" id="tk-margem" min="20" max="95" step="1" value="70" />
+              <span class="slider-hint">Referência corporativa CTI: R$ 1.000 × 1 × 3 × 70% = R$ 2.100</span>
+            </div>
+
+            <div class="filter-group">
+              <label for="tk-invest">Investimento em Aquisição (R$)</label>
+              <input type="number" id="tk-invest" value="200000" step="10000" min="1000" max="10000000" />
+            </div>
+
+            <div class="filter-group">
+              <label for="tk-novos">Novos Clientes Adquiridos</label>
+              <input type="number" id="tk-novos" value="1000" step="50" min="10" max="100000" />
+            </div>
+
+            <div class="filter-group" style="justify-content:center;">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;font-size:0.78rem;color:#e2e8f0;">
+                <input type="checkbox" id="tk-comprimir" checked />
+                Comprimir margem pelo desconto (custo fixo)
+              </label>
+            </div>
+          </div>
+
+          <div class="chart-box">
+            <h3>Curva de Sensibilidade do LTV (R$/cliente) e Múltiplo LTV/CAC (x) ao Desconto ou Cupom no Ticket</h3>
+            <div class="chart-sub">Efeito da concessão de desconto comercial sobre o valor vitalício do cliente e sobre a cobertura do CAC</div>
+            <div id="chart-ticket-ltv" class="svg-chart-container"></div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- ABA 4: ANÁLISE DE SENSIBILIDADE (WHAT-IF)                        -->
+        <!-- ================================================================ -->
+        <section id="tab-sensib" class="tab-pane">
+          <div class="section-header">
+            <div>
+              <h2>Análise de Sensibilidade Operacional: Impacto de Desconto/Cupom, Volume, Custos e WACC</h2>
+              <p>Simule choques isolados ou combinados nas variáveis da DRE e avalie o impacto imediato sobre a Margem de Contribuição, Margem EBITDA, EVA e Volume de Equilíbrio.</p>
+            </div>
+            <button class="btn" id="btn-reset-sensib">Restaurar Cenário Base (0% Choque)</button>
+          </div>
+
+          <!-- Sliders de Sensibilidade -->
+          <div class="controls-panel">
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>1. Desconto / Cupom na Receita</span>
+                <span class="val-highlight" id="lbl-sens-desconto">5%</span>
+              </div>
+              <input type="range" id="sens-desconto" min="0" max="25" step="0.5" value="5" />
+              <span class="slider-hint">Reduz a receita mantendo os custos operacionais</span>
+            </div>
+
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>2. Variação no Volume / Demanda</span>
+                <span class="val-highlight" id="lbl-sens-volume">+0%</span>
+              </div>
+              <input type="range" id="sens-volume" min="-25" max="35" step="0.5" value="0" />
+              <span class="slider-hint">Escala Receita Bruta, Tributos e Custos Variáveis</span>
+            </div>
+
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>3. Choque nos Custos Variáveis Proxy</span>
+                <span class="val-highlight" id="lbl-sens-custo">+0%</span>
+              </div>
+              <input type="range" id="sens-custo" min="-25" max="35" step="0.5" value="0" />
+              <span class="slider-hint">Altera o custo variável unitário (DRE - Custos)</span>
+            </div>
+
+            <div class="slider-control">
+              <div class="slider-header">
+                <span>4. Custo de Capital – WACC (Base = 12%)</span>
+                <span class="val-highlight" id="lbl-sens-wacc">12%</span>
+              </div>
+              <input type="range" id="sens-wacc" min="6" max="22" step="0.25" value="12" />
+              <span class="slider-hint">Impacta o encargo de capital e o EVA</span>
+            </div>
+          </div>
+
+          <!-- KPIs Simulados -->
+          <div id="sensib-kpi-grid" class="kpi-grid"></div>
+
+          <div class="charts-grid-2">
+            <div class="chart-box">
+              <h3>Trajetória de Margens: Cenário Base Corporativo vs Simulado (Pós-Desconto/Cupom)</h3>
+              <div class="chart-sub">Comparação ano a ano da compressão/expansão na Margem de Contribuição e na Margem EBITDA Calculada</div>
+              <div id="chart-sensib-comparativo" class="svg-chart-container"></div>
+            </div>
+
+            <div class="chart-box">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+                <div>
+                  <h3>Matriz de Sensibilidade Bivariada (Desconto/Cupom × Custos)</h3>
+                  <div class="chart-sub" style="margin-bottom:0;">A célula destacada em azul indica a combinação próxima aos controles atuais</div>
+                </div>
+                <select id="sens-metrica-heat" style="background:#0f172a;color:#f8fafc;border:1px solid rgba(148,163,184,0.3);border-radius:6px;padding:5px 8px;font-size:0.75rem;">
+                  <option value="margem_ebitda_calc">Margem EBITDA Calculada (%)</option>
+                  <option value="margem_contrib">Margem de Contribuição (%)</option>
+                  <option value="eva_bi">EVA Médio Anual (R$ bi)</option>
+                </select>
+              </div>
+              <div class="table-wrapper" style="margin-bottom:0;">
+                <table class="heatmap-table" id="heatmap-sensibilidade"></table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- ABA 5: RANKINGS & COMPARADOR DOS 1.200 CENÁRIOS                  -->
+        <!-- ================================================================ -->
+        <section id="tab-rankings" class="tab-pane">
+          <div class="section-header">
+            <div>
+              <h2>Rankings Estratégicos Oficiais (Top 10) e Explorador dos 1.200 Cenários</h2>
+              <p>Clique em qualquer cenário nas tabelas abaixo para carregar sua evolução de 12 anos na Visão Financeira.</p>
+            </div>
+          </div>
+
+          <div class="controls-panel cols-2">
+            <div class="filter-group">
+              <label for="sel-rank-top10-cat">Perfil Estratégico de Cenários CTI Global</label>
+              <select id="sel-rank-top10-cat">
+                <option value="ALTA RENTABILIDADE">ALTA RENTABILIDADE (Maior média da Margem EBITDA do modelo)</option>
+                <option value="ALTA LIQUIDEZ">ALTA LIQUIDEZ (Maior média da LC)</option>
+                <option value="BAIXA LIQUIDEZ">BAIXA LIQUIDEZ (Menor média da LC)</option>
+                <option value="RETORNO MODERADO">RETORNO MODERADO (Mais próximo da mediana da Margem EBITDA)</option>
+                <option value="BAIXO RISCO">BAIXO RISCO (Menor score composto)</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="inp-busca-cenario">Buscar Cenário no Ranking Geral (ex: Cen_01029 ou posição)</label>
+              <input type="text" id="inp-busca-cenario" placeholder="Digite ex: Cen_00001, Cen_01094..." />
+            </div>
+          </div>
+
+          <div class="section-header">
+            <h2>Top 10 Cenários por Perfil Estratégico</h2>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table table-fit">
+              <thead>
+                <tr>
+                  <th>Posição</th>
+                  <th>Cenário</th>
+                  <th class="num-col">Indicador-Chave</th>
+                  <th>Critério Técnico de Classificação</th>
+                  <th class="num-col">Margem<br />EBITDA Mod.</th>
+                  <th class="num-col">Liquidez<br />Corr. (LC)</th>
+                  <th class="num-col">ROIC<br />Médio</th>
+                  <th class="num-col">EVA<br />Médio</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-top10"></tbody>
+            </table>
+          </div>
+
+          <div class="section-header">
+            <h2>Ranking Corporativo de Cenários CTI Global (Top 100 / Pesquisa Ativa)</h2>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table table-fit">
+              <thead>
+                <tr>
+                  <th>Rank #</th>
+                  <th>Cenário</th>
+                  <th class="num-col">Margem<br />EBITDA M.</th>
+                  <th class="num-col">Margem<br />EBITDA C.</th>
+                  <th class="num-col">Margem<br />Contrib.</th>
+                  <th class="num-col">Receita<br />Média</th>
+                  <th class="num-col">EBITDA<br />Calc.</th>
+                  <th class="num-col">EVA<br />Médio</th>
+                  <th class="num-col">ROIC</th>
+                  <th class="num-col">Liquidez<br />(LC)</th>
+                  <th class="num-col">Endiv.<br />Geral</th>
+                  <th class="num-col">Score<br />Risco</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-ranking-geral"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- ABA 6: GOVERNANÇA DE KPIS & AUDITORIA CORPORATIVA                -->
+        <!-- ================================================================ -->
+        <section id="tab-dic" class="tab-pane">
+          <div class="section-header">
+            <div>
+              <h2>Governança de Indicadores Financeiros, Estatísticas de Simulação e Auditoria Contábil</h2>
+              <p>Documentação técnica das regras de cálculo, origens contábeis, unidades, parâmetros corporativos e reconciliação das demonstrações financeiras da CTI Global.</p>
+            </div>
+          </div>
+
+          <div class="notice-banner" style="border-left-color:#10b981;background:rgba(16,185,129,0.09);border-color:rgba(16,185,129,0.3);">
+            <strong>Conformidade Contábil Verificada (14.400 registros × 22 KPIs):</strong> Todos os indicadores reportados neste portal são reconciliados automaticamente com as demonstrações de Balanço Patrimonial, DRE e Fluxo de Caixa (DFC) da CTI Global, com precisão numérica superior a <code>1e-14</code> para todos os índices e margens.
+          </div>
+
+          <div class="controls-panel cols-2">
+            <div class="filter-group">
+              <label for="sel-dic-cat">Filtrar Catálogo por Dimensão Financeira</label>
+              <select id="sel-dic-cat">
+                <option value="TODAS">Todas as Dimensões (22 Indicadores)</option>
+                <option value="COMPLEMENTAR">COMPLEMENTAR (Receita, Custos Variáveis Proxy, Margem Contrib.)</option>
+                <option value="EBITDA">EBITDA (EBITDA Calculado, Modelo e Margens)</option>
+                <option value="EVA">EVA (Capital Investido, NOPAT, ROIC, EVA)</option>
+                <option value="LIQUIDEZ">LIQUIDEZ (LC, LS, LI, LG)</option>
+                <option value="ENDIVIDAMENTO">ENDIVIDAMENTO (PCT, CE, IPL, Endividamento Geral)</option>
+                <option value="PREMISSAS">PREMISSAS (CAC, LTV e Relação LTV/CAC)</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="inp-busca-dic">Pesquisar Indicador, Fórmula ou Diretriz Contábil</label>
+              <input type="text" id="inp-busca-dic" placeholder="Ex: EBITDA, WACC, Ticket, Liquidez..." />
+            </div>
+          </div>
+
+          <div class="section-header">
+            <h2>1. Catálogo Corporativo de Indicadores Financeiros (Governança FP&amp;A)</h2>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table table-catalog">
+              <thead>
+                <tr>
+                  <th style="width:9%;">Dimensão</th>
+                  <th style="width:12%;">KPI / Indicador</th>
+                  <th style="width:15%;">Descrição</th>
+                  <th style="width:14%;">Fórmula / Regra</th>
+                  <th style="width:5%;">Unid.</th>
+                  <th style="width:9%;">Escopo</th>
+                  <th style="width:13%;">Interpretação Executiva</th>
+                  <th style="width:12%;">Diretriz Corporativa</th>
+                  <th style="width:11%;">Auditoria Contábil</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-dicionario"></tbody>
+            </table>
+          </div>
+
+          <div class="section-header">
+            <h2>2. Distribuição Estatística Consolidada dos 1.200 Cenários CTI Global</h2>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table table-fit">
+              <thead>
+                <tr>
+                  <th>KPI / Indicador</th>
+                  <th>Unid.</th>
+                  <th class="num-col">N</th>
+                  <th class="num-col">Média</th>
+                  <th class="num-col">Desvio<br />Padrão</th>
+                  <th class="num-col">Mínimo</th>
+                  <th class="num-col">P5</th>
+                  <th class="num-col">P25<br />(Q1)</th>
+                  <th class="num-col">P50<br />(Mediana)</th>
+                  <th class="num-col">P75<br />(Q3)</th>
+                  <th class="num-col">P95</th>
+                  <th class="num-col">Máximo</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-estatisticas"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="dados_planilha.js"></script>
+  <script src="dashboard_app.js"></script>
+</body>
+</html>
